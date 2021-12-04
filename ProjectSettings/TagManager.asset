@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - front
+  - back
   - 
   - 
   - 
@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 689791141
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackSwat
+    uniqueID: 369788281
+    locked: 0
+  - name: FrontSwat
+    uniqueID: 1601669799
     locked: 0
