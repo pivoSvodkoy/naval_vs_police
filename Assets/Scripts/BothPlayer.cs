@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class BothPlayer : MonoBehaviour
 {
     [SerializeField] GameObject wins1;
+    [SerializeField] List <GameObject> SWAT;
+    [SerializeField] List <GameObject> GaysAndAnime;
     [SerializeField] GameObject wins2;
     [SerializeField] 
     private double coinFirst;
@@ -39,6 +41,12 @@ public class BothPlayer : MonoBehaviour
         wins1.SetActive(false);
         wins2.SetActive(false);
         InvokeRepeating("TimeStartGame", 2.0f, 3f);
+        for(int i = 0; i< SWAT.Count; i++)
+        {
+            SWAT[i].SetActive(false);
+            GaysAndAnime[i].SetActive(false);
+        }
+        
     }
     void Update()
     {
@@ -56,6 +64,38 @@ public class BothPlayer : MonoBehaviour
         moneyFirstPlayer.text = returnTextFirst.ToString();
         int returnTextSecond = (int)(coinSecond + 0.1);
         moneySecondPlayer.text = returnTextSecond.ToString();
+        if(scoreFirst >= 20)
+        {
+            SWAT[0].SetActive(true);
+        }
+        if(scoreFirst >= 30)
+        {
+            SWAT[1].SetActive(true);
+        }
+        if(scoreFirst >= 40)
+        {
+            SWAT[2].SetActive(true);
+        }
+        if(scoreFirst >= 50)
+        {
+            SWAT[3].SetActive(true);
+        }
+        if(scoreSecond >= 20)
+        {
+            GaysAndAnime[0].SetActive(true);
+        }
+        if(scoreSecond >= 30)
+        {
+            GaysAndAnime[1].SetActive(true);
+        }
+        if(scoreSecond >= 40)
+        {
+            GaysAndAnime[2].SetActive(true);
+        }
+        if(scoreSecond >= 50)
+        {
+            GaysAndAnime[3].SetActive(true);
+        }
     }
     public void TimeStartGame()
     {
