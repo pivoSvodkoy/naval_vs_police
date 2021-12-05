@@ -41,10 +41,10 @@ public class BothPlayer : MonoBehaviour
 
     public void BuffClickFirst()
     {
-        if (coinFirst >= 1)
+        if (coinFirst >= 10)
         {
             imageFirst.color = new Color32(123, 123, 123, 255);
-            coinFirst -= 1;
+            coinFirst -= 10;
             StartCoroutine(PointPerClickUp(5));
         }
         return;
@@ -65,10 +65,10 @@ public class BothPlayer : MonoBehaviour
     }
     public void BuffClickSecond()
     {
-        if(coinSecond >=1)
+        if(coinSecond >=10)
         {
             imageSecond.color = new Color32(123, 123, 123, 255);
-            coinSecond -= 1;
+            coinSecond -= 10;
             StartCoroutine(PointPerClickUp2(5));
         }
         return;
@@ -104,16 +104,17 @@ public class BothPlayer : MonoBehaviour
     void Update()
     {
 
-        if((scoreFirst - scoreSecond) >= 500)
+        //if((scoreFirst - scoreSecond) >= 500)
 
         btnFirst.interactable = false;
-        if (coinFirst >=1)
+        btnSecond.interactable = false;
+        if (coinFirst >=10)
         {
             btnFirst.interactable = true;
             imageFirst.color = new Color32(0, 255, 0, 255);
         }
-        btnSecond.interactable = false;
-        if (coinSecond >= 1)
+        
+        if (coinSecond >= 10)
         {
             btnSecond.interactable = true;
             imageSecond.color = new Color32(0, 255, 0, 255);
