@@ -30,6 +30,8 @@ public class BothPlayer : MonoBehaviour
     private int PointPerClick2 = 1;
     [SerializeField] GameObject GameField1;
     [SerializeField] GameObject GameField2;
+    public Text scoreFirstPlayer;
+    public Text scoreSecondPlayer;
 
     public void ButtonClickFirstPlayer()
     {
@@ -75,6 +77,9 @@ public class BothPlayer : MonoBehaviour
         moneyFirstPlayer.text = returnTextFirst.ToString();
         int returnTextSecond = (int)(coinSecond + 0.1);
         moneySecondPlayer.text = returnTextSecond.ToString();
+
+        scoreFirstPlayer.text = scoreFirst.ToString();
+        scoreSecondPlayer.text = scoreSecond.ToString();
         if(scoreFirst >= 20)
         {
             SWAT[0].SetActive(true);
