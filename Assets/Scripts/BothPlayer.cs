@@ -28,6 +28,8 @@ public class BothPlayer : MonoBehaviour
     public Text moneySecondPlayer;
     private int PointPerClick1 = 1;
     private int PointPerClick2 = 1;
+    public Text scoreFirstPlayer;
+    public Text scoreSecondPlayer;
 
     public void ButtonClickFirstPlayer()
     {
@@ -70,6 +72,9 @@ public class BothPlayer : MonoBehaviour
         moneyFirstPlayer.text = returnTextFirst.ToString();
         int returnTextSecond = (int)(coinSecond + 0.1);
         moneySecondPlayer.text = returnTextSecond.ToString();
+
+        scoreFirstPlayer.text = scoreFirst.ToString();
+        scoreSecondPlayer.text = scoreSecond.ToString();
         if(scoreFirst >= 20)
         {
             SWAT[0].SetActive(true);
