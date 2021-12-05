@@ -5,13 +5,22 @@ using UnityEngine.UI;
 
 public class BothPlayer : MonoBehaviour
 {
-    [SerializeField] int scoreFirst;
-    [SerializeField] int scoreSecond;
-    [SerializeField] double coinFirst;
-    [SerializeField] double coinSecond;
+    [SerializeField] 
+    private double coinFirst;
+    [SerializeField] 
+    private double coinSecond;
+    [SerializeField] 
+    private int scoreFirst;
+    [SerializeField] 
+    private int scoreSecond;
+    [SerializeField]
+    private GameObject objPrefab;
+    private CreateWeapon crW = new CreateWeapon();
+
 
     public void ButtonClickFirstPlayer()
     {
+        crW.CreateObj(objPrefab);
         scoreFirst++;
     }
 

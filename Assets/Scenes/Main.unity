@@ -385,6 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreFirst: 0
   scoreSecond: 0
+  objPrefab: {fileID: 1576397439}
 --- !u!1001 &199700911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -764,7 +765,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 393498684}
-  - component: {fileID: 393498683}
   m_Layer: 0
   m_Name: CeateObj
   m_TagString: Untagged
@@ -772,20 +772,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &393498683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393498682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fcab884c6f73f74b96ed2fa0ca4ae48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objPrefab: {fileID: 1576397439}
-  animation: {fileID: 0}
 --- !u!4 &393498684
 Transform:
   m_ObjectHideFlags: 0
