@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +33,46 @@ public class BothPlayer : MonoBehaviour
     public Text scoreFirstPlayer;
     public Text scoreSecondPlayer;
     [SerializeField] GameObject Draw;
+    public Image imageFirst;
+    public Image imageSecond;
+    public Button btnFirst;
+    public Button btnSecond;
+
+
+    public void BuffClickFirst()
+    {
+        if (coinFirst >= 1)
+        {
+            imageFirst.color = new Color32(123, 123, 123, 255);
+            coinFirst -= 1;
+            StartCoroutine(PointPerClickUp(5));
+        }
+        return;
+    }
+    
+    IEnumerator PointPerClickUp(float t)
+    {
+        PointPerClick1 += 5;
+        yield return new WaitForSeconds(t);
+        PointPerClick1 -= 5;
+    }
+
+    IEnumerator PointPerClickUp2(float t)
+    {
+        PointPerClick2 += 5;
+        yield return new WaitForSeconds(t);
+        PointPerClick2 -= 5;
+    }
+    public void BuffClickSecond()
+    {
+        if(coinSecond >=1)
+        {
+            imageSecond.color = new Color32(123, 123, 123, 255);
+            coinSecond -= 1;
+            StartCoroutine(PointPerClickUp2(5));
+        }
+        return;
+    }
 
     public void ButtonClickFirstPlayer()
     {
@@ -63,7 +103,23 @@ public class BothPlayer : MonoBehaviour
     }
     void Update()
     {
+
         if((scoreFirst - scoreSecond) >= 500)
+
+        btnFirst.interactable = false;
+        if (coinFirst >=1)
+        {
+            btnFirst.interactable = true;
+            imageFirst.color = new Color32(0, 255, 0, 255);
+        }
+        btnSecond.interactable = false;
+        if (coinSecond >= 1)
+        {
+            btnSecond.interactable = true;
+            imageSecond.color = new Color32(0, 255, 0, 255);
+        }
+
+        if ((scoreFirst - scoreSecond) >= 50)
         {
             //FIRST PLAYER WIN
             wins1.SetActive(true);
