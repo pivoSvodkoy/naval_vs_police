@@ -28,8 +28,8 @@ public class BothPlayer : MonoBehaviour
     public Text moneySecondPlayer;
     private int PointPerClick1 = 1;
     private int PointPerClick2 = 1;
-    [SerializeField] GameObject GameField1;
-    [SerializeField] GameObject GameField2;
+    [SerializeField] Button GameField1;
+    [SerializeField] Button GameField2;
     public Text scoreFirstPlayer;
     public Text scoreSecondPlayer;
     [SerializeField] GameObject Draw;
@@ -37,7 +37,30 @@ public class BothPlayer : MonoBehaviour
     public Image imageSecond;
     public Button btnFirst;
     public Button btnSecond;
+    public Button btnFirst_2;
+    public Button btnSecond_2;
+    public Image imageFirst_2;
+    public Image imageSecond_2;
 
+    public void BuffClickFirst_2()
+    {
+        if(coinFirst >= 3 && scoreSecond >=25)
+        {
+            imageFirst_2.color = new Color32(123, 123, 123, 255);
+            coinFirst -= 3;
+            scoreSecond -= 25;
+        }
+    }
+
+    public void BuffClickSecond_2()
+    {
+        if (coinSecond >= 3 && scoreFirst >= 25)
+        {
+            imageSecond_2.color = new Color32(123, 123, 123, 255);
+            coinSecond -= 3;
+            scoreFirst -= 25;
+        }
+    }
 
     public void BuffClickFirst()
     {
@@ -108,6 +131,20 @@ public class BothPlayer : MonoBehaviour
 
         btnFirst.interactable = false;
         btnSecond.interactable = false;
+        btnFirst_2.interactable = false;
+        btnSecond_2.interactable = false;
+        if(coinFirst >=3)
+        {
+            btnFirst_2.interactable = true;
+            imageFirst_2.color = new Color32(0, 255, 0, 255);
+        }
+
+        if(coinSecond >= 3)
+        {
+            btnSecond_2.interactable = true;
+            imageSecond_2.color = new Color32(0, 255, 0, 255);
+        }
+
         if (coinFirst >=10)
         {
             btnFirst.interactable = true;
@@ -120,20 +157,20 @@ public class BothPlayer : MonoBehaviour
             imageSecond.color = new Color32(0, 255, 0, 255);
         }
 
-        if ((scoreFirst - scoreSecond) >= 50)
+        if ((scoreFirst - scoreSecond) >= 500)
         {
             //FIRST PLAYER WIN
             wins1.SetActive(true);
-            GameField1.SetActive(false);
-            GameField2.SetActive(false);
+            GameField1.interactable = false;
+            GameField2.interactable = false;
 
         }
         if((scoreSecond - scoreFirst) >= 500)
         {
             //SECOND PLAYER WIN
             wins2.SetActive(true);
-            GameField1.SetActive(false);
-            GameField2.SetActive(false);
+            GameField1.interactable = false;
+            GameField2.interactable = false;
         }
         int returnTextFirst = (int)(coinFirst + 0.1);
         moneyFirstPlayer.text = returnTextFirst.ToString();
@@ -145,42 +182,42 @@ public class BothPlayer : MonoBehaviour
         if(scoreFirst >= 50)
         {
             SWAT[0].SetActive(true);
-            PointPerClick1 = 2;
+            PointPerClick1++;
         }
         if(scoreFirst >= 200)
         {
             SWAT[1].SetActive(true);
-            PointPerClick1 = 3;
+            PointPerClick1++;
         }
         if(scoreFirst >= 1000)
         {
             SWAT[2].SetActive(true);
-            PointPerClick1 = 4;
+            PointPerClick1++;
         }
         if(scoreFirst >= 5000)
         {
             SWAT[3].SetActive(true);
-            PointPerClick1 = 5;
+            PointPerClick1++;
         }
         if(scoreSecond >= 50)
         {
             GaysAndAnime[0].SetActive(true);
-            PointPerClick2 = 2;
+            PointPerClick2++;
         }
         if(scoreSecond >= 200)
         {
             GaysAndAnime[1].SetActive(true);
-            PointPerClick2 = 3;
+            PointPerClick2++;
         }
         if(scoreSecond >= 1000)
         {
             GaysAndAnime[2].SetActive(true);
-            PointPerClick2 = 4;
+            PointPerClick2++;
         }
         if(scoreSecond >= 5000)
         {
             GaysAndAnime[3].SetActive(true);
-            PointPerClick2 = 5;
+            PointPerClick2++;
         }
     }
     public void TimeStartGame()
@@ -197,7 +234,7 @@ public class BothPlayer : MonoBehaviour
     public void Draw1()
     {
         Draw.SetActive(true);
-        GameField1.SetActive(false);
-        GameField2.SetActive(false);
+        GameField1.interactable = false;
+        GameField2.interactable = false;
     }
 }
