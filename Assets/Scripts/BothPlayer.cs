@@ -20,17 +20,19 @@ public class BothPlayer : MonoBehaviour
     [SerializeField]
     private GameObject prefabWeaponSecondPlayer;
     private CreateWeapon crW = new CreateWeapon();
+    [SerializeField]
+    private Image image;
 
     public void ButtonClickFirstPlayer()
     {
         crW.CreateWeaponFirstPlayer(prefabWeaponFirstPlayer);
-        scoreFirst++;
+        image.fillAmount += 0.01f;
     }
 
     public void ButtonClickSecondPlayer()
     {
         crW.CreateWeaponSecondPlayer(prefabWeaponSecondPlayer);
-        scoreSecond++;
+        image.fillAmount -= 0.01f;
     }
     void Start()
     {
@@ -61,7 +63,5 @@ public class BothPlayer : MonoBehaviour
         {
             coinSecond += 0.1;
         }
-        
     }
-
 }
