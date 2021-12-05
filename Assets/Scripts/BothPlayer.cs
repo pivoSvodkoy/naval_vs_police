@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class BothPlayer : MonoBehaviour
 {
-    [SerializeField] GameObject wins1;
     [SerializeField] List <GameObject> SWAT;
     [SerializeField] List <GameObject> GaysAndAnime;
+    [SerializeField] GameObject wins1;
     [SerializeField] GameObject wins2;
     [SerializeField] 
     private double coinFirst;
@@ -32,6 +32,7 @@ public class BothPlayer : MonoBehaviour
     [SerializeField] GameObject GameField2;
     public Text scoreFirstPlayer;
     public Text scoreSecondPlayer;
+    [SerializeField] GameObject Draw;
 
     public void ButtonClickFirstPlayer()
     {
@@ -48,9 +49,11 @@ public class BothPlayer : MonoBehaviour
     }
     void Start()
     {
+        Draw.SetActive(false);
         wins1.SetActive(false);
         wins2.SetActive(false);
-        InvokeRepeating("TimeStartGame", 2.0f, 3f);
+        InvokeRepeating("TimeStartGame", 1.0f, 1f);
+        Invoke("Draw1", 600f);
         for(int i = 0; i< SWAT.Count; i++)
         {
             SWAT[i].SetActive(false);
@@ -60,17 +63,19 @@ public class BothPlayer : MonoBehaviour
     }
     void Update()
     {
-        if((scoreFirst - scoreSecond) >= 50)
+        if((scoreFirst - scoreSecond) >= 500)
         {
             //FIRST PLAYER WIN
             wins1.SetActive(true);
             GameField1.SetActive(false);
+            GameField2.SetActive(false);
 
         }
-        if((scoreSecond - scoreFirst) >= 50)
+        if((scoreSecond - scoreFirst) >= 500)
         {
             //SECOND PLAYER WIN
             wins2.SetActive(true);
+            GameField1.SetActive(false);
             GameField2.SetActive(false);
         }
         int returnTextFirst = (int)(coinFirst + 0.1);
@@ -80,42 +85,42 @@ public class BothPlayer : MonoBehaviour
 
         scoreFirstPlayer.text = scoreFirst.ToString();
         scoreSecondPlayer.text = scoreSecond.ToString();
-        if(scoreFirst >= 20)
+        if(scoreFirst >= 50)
         {
             SWAT[0].SetActive(true);
             PointPerClick1 = 2;
         }
-        if(scoreFirst >= 30)
+        if(scoreFirst >= 200)
         {
             SWAT[1].SetActive(true);
             PointPerClick1 = 3;
         }
-        if(scoreFirst >= 40)
+        if(scoreFirst >= 1000)
         {
             SWAT[2].SetActive(true);
             PointPerClick1 = 4;
         }
-        if(scoreFirst >= 50)
+        if(scoreFirst >= 5000)
         {
             SWAT[3].SetActive(true);
             PointPerClick1 = 5;
         }
-        if(scoreSecond >= 20)
+        if(scoreSecond >= 50)
         {
             GaysAndAnime[0].SetActive(true);
             PointPerClick2 = 2;
         }
-        if(scoreSecond >= 30)
+        if(scoreSecond >= 200)
         {
             GaysAndAnime[1].SetActive(true);
             PointPerClick2 = 3;
         }
-        if(scoreSecond >= 40)
+        if(scoreSecond >= 1000)
         {
             GaysAndAnime[2].SetActive(true);
             PointPerClick2 = 4;
         }
-        if(scoreSecond >= 50)
+        if(scoreSecond >= 5000)
         {
             GaysAndAnime[3].SetActive(true);
             PointPerClick2 = 5;
@@ -125,11 +130,17 @@ public class BothPlayer : MonoBehaviour
     {
         if((scoreFirst - scoreSecond) >= 10)
         {
-            coinFirst += 0.1;
+            coinFirst += 1;
         }
         if((scoreSecond - scoreFirst) >= 10)
         {
-            coinSecond += 0.1;
+            coinSecond += 1;
         }
+    }
+    public void Draw1()
+    {
+        Draw.SetActive(true);
+        GameField1.SetActive(false);
+        GameField2.SetActive(false);
     }
 }
