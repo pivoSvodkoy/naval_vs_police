@@ -26,19 +26,21 @@ public class BothPlayer : MonoBehaviour
     private Image image;
     public Text moneyFirstPlayer;
     public Text moneySecondPlayer;
+    private int PointPerClick1 = 1;
+    private int PointPerClick2 = 1;
 
     public void ButtonClickFirstPlayer()
     {
         crW.CreateWeaponFirstPlayer(prefabWeaponFirstPlayer);
         image.fillAmount += 0.01f;
-        scoreFirst++;
+        scoreFirst += PointPerClick1;
     }
 
     public void ButtonClickSecondPlayer()
     {
         crW.CreateWeaponSecondPlayer(prefabWeaponSecondPlayer);
         image.fillAmount -= 0.01f;
-        scoreSecond++;
+        scoreSecond += PointPerClick2;
     }
     void Start()
     {
@@ -71,34 +73,42 @@ public class BothPlayer : MonoBehaviour
         if(scoreFirst >= 20)
         {
             SWAT[0].SetActive(true);
+            PointPerClick1 = 2;
         }
         if(scoreFirst >= 30)
         {
             SWAT[1].SetActive(true);
+            PointPerClick1 = 3;
         }
         if(scoreFirst >= 40)
         {
             SWAT[2].SetActive(true);
+            PointPerClick1 = 4;
         }
         if(scoreFirst >= 50)
         {
             SWAT[3].SetActive(true);
+            PointPerClick1 = 5;
         }
         if(scoreSecond >= 20)
         {
             GaysAndAnime[0].SetActive(true);
+            PointPerClick2 = 2;
         }
         if(scoreSecond >= 30)
         {
             GaysAndAnime[1].SetActive(true);
+            PointPerClick2 = 3;
         }
         if(scoreSecond >= 40)
         {
             GaysAndAnime[2].SetActive(true);
+            PointPerClick2 = 4;
         }
         if(scoreSecond >= 50)
         {
             GaysAndAnime[3].SetActive(true);
+            PointPerClick2 = 5;
         }
     }
     public void TimeStartGame()
