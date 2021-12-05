@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class CreateWeapon : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject objPrefab;
-    public Animation animation;
-
-    void Update()
+    public void CreateWeaponFirstPlayer(GameObject objPrefab)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            CreateObj();
-        }
+        Instantiate(objPrefab, objPrefab.transform.position, objPrefab.transform.rotation);
     }
 
-    public void CreateObj()
+    public void CreateWeaponSecondPlayer(GameObject objPrefab)
     {
-        var weapon = Instantiate(objPrefab, transform.position, transform.rotation);
+        Instantiate(objPrefab, objPrefab.transform.position, objPrefab.transform.rotation);
     }
 }
