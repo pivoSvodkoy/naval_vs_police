@@ -20,6 +20,8 @@ public class BothPlayer : MonoBehaviour
     [SerializeField]
     private GameObject prefabWeaponSecondPlayer;
     private CreateWeapon crW = new CreateWeapon();
+    public Text moneyFirstPlayer;
+    public Text moneySecondPlayer;
 
     public void ButtonClickFirstPlayer()
     {
@@ -50,6 +52,10 @@ public class BothPlayer : MonoBehaviour
             //SECOND PLAYER WIN
             wins2.SetActive(true);
         }
+        int returnTextFirst = (int)(coinFirst + 0.1);
+        moneyFirstPlayer.text = returnTextFirst.ToString();
+        int returnTextSecond = (int)(coinSecond + 0.1);
+        moneySecondPlayer.text = returnTextSecond.ToString();
     }
     public void TimeStartGame()
     {
