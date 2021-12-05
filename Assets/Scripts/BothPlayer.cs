@@ -28,6 +28,8 @@ public class BothPlayer : MonoBehaviour
     public Text moneySecondPlayer;
     private int PointPerClick1 = 1;
     private int PointPerClick2 = 1;
+    [SerializeField] GameObject GameField1;
+    [SerializeField] GameObject GameField2;
 
     public void ButtonClickFirstPlayer()
     {
@@ -60,11 +62,14 @@ public class BothPlayer : MonoBehaviour
         {
             //FIRST PLAYER WIN
             wins1.SetActive(true);
+            GameField1.SetActive(false);
+
         }
         if((scoreSecond - scoreFirst) >= 50)
         {
             //SECOND PLAYER WIN
             wins2.SetActive(true);
+            GameField2.SetActive(false);
         }
         int returnTextFirst = (int)(coinFirst + 0.1);
         moneyFirstPlayer.text = returnTextFirst.ToString();
