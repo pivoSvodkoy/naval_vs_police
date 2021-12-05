@@ -14,18 +14,21 @@ public class BothPlayer : MonoBehaviour
     [SerializeField] 
     private int scoreSecond;
     [SerializeField]
-    private GameObject objPrefab;
+    private GameObject prefabWeaponFirstPlayer;
+    [SerializeField]
+    private GameObject prefabWeaponSecondPlayer;
     private CreateWeapon crW = new CreateWeapon();
 
 
     public void ButtonClickFirstPlayer()
     {
-        crW.CreateObj(objPrefab);
+        crW.CreateWeaponFirstPlayer(prefabWeaponFirstPlayer);
         scoreFirst++;
     }
 
     public void ButtonClickSecondPlayer()
     {
+        crW.CreateWeaponSecondPlayer(prefabWeaponSecondPlayer);
         scoreSecond++;
     }
     void Start()

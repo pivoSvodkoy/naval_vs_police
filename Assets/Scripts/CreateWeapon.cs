@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CreateWeapon : MonoBehaviour
 {
-    public void CreateObj(GameObject objPrefab)
+    public void CreateWeaponFirstPlayer(GameObject objPrefab)
     {
-        var weapon = Instantiate(objPrefab, objPrefab.transform.position, objPrefab.transform.rotation);
+        Instantiate(objPrefab, objPrefab.transform.position, objPrefab.transform.rotation);
+    }
+
+    public void CreateWeaponSecondPlayer(GameObject objPrefab)
+    {
+        Instantiate(objPrefab, objPrefab.transform.position, objPrefab.transform.rotation);
     }
 }
