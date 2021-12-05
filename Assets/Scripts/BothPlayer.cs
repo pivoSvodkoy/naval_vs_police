@@ -31,12 +31,14 @@ public class BothPlayer : MonoBehaviour
     {
         crW.CreateWeaponFirstPlayer(prefabWeaponFirstPlayer);
         image.fillAmount += 0.01f;
+        scoreFirst++;
     }
 
     public void ButtonClickSecondPlayer()
     {
         crW.CreateWeaponSecondPlayer(prefabWeaponSecondPlayer);
         image.fillAmount -= 0.01f;
+        scoreSecond++;
     }
     void Start()
     {
