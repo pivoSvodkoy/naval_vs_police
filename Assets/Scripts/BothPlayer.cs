@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class BothPlayer : MonoBehaviour
 {
-    [SerializeField] int scoreFirst;
-    [SerializeField] int scoreSecond;
-    [SerializeField] double coinFirst;
-    [SerializeField] double coinSecond;
-
+    [SerializeField] int scoreFirst, scoreSecond;
+    [SerializeField] double coinFirst, coinSecond;
+    [SerializeField] GameObject wins1;
+    [SerializeField] GameObject wins2;
     public void ButtonClickFirstPlayer()
     {
         scoreFirst++;
@@ -21,11 +20,22 @@ public class BothPlayer : MonoBehaviour
     }
     void Start()
     {
+        wins1.SetActive(false);
+        wins2.SetActive(false);
         InvokeRepeating("TimeStartGame", 2.0f, 3f);
     }
     void Update()
     {
-        
+        if((scoreFirst - scoreSecond) >= 50)
+        {
+            //FIRST PLAYER WIN
+            wins1.SetActive(true);
+        }
+        if((scoreSecond - scoreFirst) >= 50)
+        {
+            //SECOND PLAYER WIN
+            wins2.SetActive(true);
+        }
     }
     public void TimeStartGame()
     {
@@ -37,14 +47,7 @@ public class BothPlayer : MonoBehaviour
         {
             coinSecond += 0.1;
         }
-        if((scoreFirst - scoreSecond) >= 1000)
-        {
-            //FIRST PLAYER WIN
-        }
-        if((scoreSecond - scoreFirst) >= 1000)
-        {
-            //SECOND PLAYER WIN
-        }
+        
     }
 
 }
