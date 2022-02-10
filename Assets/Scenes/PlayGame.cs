@@ -9,4 +9,13 @@ public class PlayGame : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void PlayGamesInfo()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+    }
+    public void PlayGamesBack()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -2);
+    }
+
 }
