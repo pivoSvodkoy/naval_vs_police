@@ -41,14 +41,6 @@ public class BothPlayer : MonoBehaviour
     public Button btnSecond_2;
     public Image imageFirst_2;
     public Image imageSecond_2;
-    private bool fl1_1 = true;
-    private bool fl1_2 = true;
-    private bool fl1_3 = true;
-    private bool fl1_4 = true;
-    private bool fl2_1 = true;
-    private bool fl2_2 = true;
-    private bool fl2_3 = true;
-    private bool fl2_4 = true;
 
     public void BuffClickFirst_2()
     {
@@ -93,14 +85,6 @@ public class BothPlayer : MonoBehaviour
         PointPerClick2 += 5;
         yield return new WaitForSeconds(t);
         PointPerClick2 -= 5;
-    }
-    void SherengaBuff1()
-    {
-        PointPerClick1++;
-    }
-    void SherengaBuff2()
-    {
-        PointPerClick2++;
     }
     public void BuffClickSecond()
     {
@@ -195,78 +179,45 @@ public class BothPlayer : MonoBehaviour
 
         scoreFirstPlayer.text = scoreFirst.ToString();
         scoreSecondPlayer.text = scoreSecond.ToString();
-        
         if(scoreFirst >= 50)
         {
             SWAT[0].SetActive(true);
-            if (fl1_1)
-            {
-                PointPerClick1++;
-                fl1_1 = false;
-            } 
+            PointPerClick1++;
         }
         if(scoreFirst >= 200)
         {
             SWAT[1].SetActive(true);
-            if (fl1_2)
-            {
-                PointPerClick1++;
-                fl1_2 = false;
-            } 
+            PointPerClick1++;
         }
         if(scoreFirst >= 1000)
         {
             SWAT[2].SetActive(true);
-            if (fl1_3)
-            {
-                PointPerClick1++;
-                fl1_3 = false;
-            }
+            PointPerClick1++;
         }
         if(scoreFirst >= 5000)
         {
             SWAT[3].SetActive(true);
-            if (fl1_4)
-            {
-                PointPerClick1++;
-                fl1_4 = false;
-            } 
+            PointPerClick1++;
         }
         if(scoreSecond >= 50)
         {
             GaysAndAnime[0].SetActive(true);
-            if (fl2_1)
-            {
-                PointPerClick2++;
-                fl2_1 = false;
-            } 
+            PointPerClick2++;
         }
         if(scoreSecond >= 200)
         {
             GaysAndAnime[1].SetActive(true);
-            if (fl2_2)
-            {
-                PointPerClick2++;
-                fl2_2 = false;
-            }
+            PointPerClick2++;
         }
         if(scoreSecond >= 1000)
         {
             GaysAndAnime[2].SetActive(true);
-            if (fl2_3)
-            {
-                PointPerClick2++;
-                fl2_3 = false;
-            } 
+            PointPerClick2++;
         }
         if(scoreSecond >= 5000)
         {
             GaysAndAnime[3].SetActive(true);
-            if (fl2_4)
-            {
-                PointPerClick2++;
-                fl2_4 = false;
-            }
+            PointPerClick2++;
         }
     }
     public void TimeStartGame()

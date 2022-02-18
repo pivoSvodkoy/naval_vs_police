@@ -407,8 +407,8 @@ MonoBehaviour:
   image: {fileID: 1361797993}
   moneyFirstPlayer: {fileID: 1065410532}
   moneySecondPlayer: {fileID: 1934505570}
-  GameField1: {fileID: 763550595}
-  GameField2: {fileID: 528126813}
+  GameField1: {fileID: 0}
+  GameField2: {fileID: 528126810}
   scoreFirstPlayer: {fileID: 614689977}
   scoreSecondPlayer: {fileID: 871141709}
   Draw: {fileID: 1658534863}
@@ -1302,6 +1302,7 @@ GameObject:
   - component: {fileID: 528126815}
   - component: {fileID: 528126814}
   - component: {fileID: 528126813}
+  - component: {fileID: 528126812}
   m_Layer: 5
   m_Name: SecondPlayerBtn
   m_TagString: Untagged
@@ -1329,6 +1330,35 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0012817, y: -82.31}
   m_SizeDelta: {x: 445.21, y: 276.74}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &528126812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528126810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 131329186}
+          m_TargetAssemblyTypeName: FirstPlayer, Assembly-CSharp
+          m_MethodName: ButtonClickSecondPlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &528126813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,19 +1402,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 528126814}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 131329186}
-        m_TargetAssemblyTypeName: BothPlayer, Assembly-CSharp
-        m_MethodName: ButtonClickSecondPlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &528126814
 MonoBehaviour:
   m_ObjectHideFlags: 0
